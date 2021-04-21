@@ -2,7 +2,7 @@ package pl.qubiak.weather.map;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.qubiak.weather.map.ReadCoordinates.ReadCoordinates;
+import pl.qubiak.weather.map.ReadData.ReadCoordinates.ReadCoordinates;
 
 import java.io.IOException;
 

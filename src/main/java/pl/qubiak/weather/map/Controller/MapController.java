@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.qubiak.weather.map.Parser.ImgwParser;
+import pl.qubiak.weather.map.ReadData.ReadJsonWeatherData.ReadJsonWeatherData;
 
 import java.io.IOException;
 

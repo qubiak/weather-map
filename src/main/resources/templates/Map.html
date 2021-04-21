@@ -30,7 +30,7 @@
     }).addTo(map);
 
     points.forEach(value => {
-        L.marker(53.1276047, 23.0860263).addTo(map)
+        L.marker(lat, long).addTo(map)
             .bindPopup(value.id_stacji + "<br>" +
             value.stacja + "<br>" +
             value.data_pomiaru + "<br>" +

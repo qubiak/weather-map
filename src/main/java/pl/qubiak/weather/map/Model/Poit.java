@@ -30,6 +30,7 @@ public class Poit {
         this.cisnienie = cisnienie;
     }
 
+
     public String getId_stacji() {
         return id_stacji;
     }
