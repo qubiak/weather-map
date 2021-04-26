@@ -1,113 +1,133 @@
 package pl.qubiak.weather.map.Model;
 
-
 public class Poit {
 
-    private String id_stacji;
-    private String stacja;
-    private String data_pomiaru;
-    private String godzina_pomiaru;
-    private String temperatura;
-    private String predkosc_wiatru;
-    private String kierunek_wiatru;
-    private String wilgotnosc_wzgledna;
-    private String suma_opadu;
-    private String cisnienie;
+    private String lat;
+    private String along;
+    private String stationId;
+    private String stationName;
+    private String dateOfMeasurement;
+    private String timeOfMeasurement;
+    private String temperature;
+    private String windSpeed;
+    private String windDirection;
+    private String relativeHumidity;
+    private String rainfall;
+    private String pressure;
+
 
     public Poit() {
     }
 
-    public Poit(String id_stacji, String stacja, String data_pomiaru, String godzina_pomiaru, String temperatura, String predkosc_wiatru, String kierunek_wiatru, String wilgotnosc_wzgledna, String suma_opadu, String cisnienie) {
-        this.id_stacji = id_stacji;
-        this.stacja = stacja;
-        this.data_pomiaru = data_pomiaru;
-        this.godzina_pomiaru = godzina_pomiaru;
-        this.temperatura = temperatura;
-        this.predkosc_wiatru = predkosc_wiatru;
-        this.kierunek_wiatru = kierunek_wiatru;
-        this.wilgotnosc_wzgledna = wilgotnosc_wzgledna;
-        this.suma_opadu = suma_opadu;
-        this.cisnienie = cisnienie;
+    public Poit(String lat, String along, String stationId, String stationName, String dateOfMeasurement, String timeOfMeasurement, String temperature, String windSpeed, String windDirection, String relativeHumidity, String rainfall, String pressure) {
+        this.lat = lat;
+        this.along = along;
+        this.stationId = stationId;
+        this.stationName = stationName;
+        this.dateOfMeasurement = dateOfMeasurement;
+        this.timeOfMeasurement = timeOfMeasurement;
+        this.temperature = temperature;
+        this.windSpeed = windSpeed;
+        this.windDirection = windDirection;
+        this.relativeHumidity = relativeHumidity;
+        this.rainfall = rainfall;
+        this.pressure = pressure;
     }
 
-
-    public String getId_stacji() {
-        return id_stacji;
+    public String getLat() {
+        return lat;
     }
 
-    public void setId_stacji(String id_stacji) {
-        this.id_stacji = id_stacji;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getStacja() {
-        return stacja;
+    public String getAlong() {
+        return along;
     }
 
-    public void setStacja(String stacja) {
-        this.stacja = stacja;
+    public void setAlong(String along) {
+        this.along = along;
     }
 
-    public String getData_pomiaru() {
-        return data_pomiaru;
+    public String getStationId() {
+        return stationId;
     }
 
-    public void setData_pomiaru(String data_pomiaru) {
-        this.data_pomiaru = data_pomiaru;
+    public void setStationId(String stationId) {
+        this.stationId = stationId;
     }
 
-    public String getGodzina_pomiaru() {
-        return godzina_pomiaru;
+    public String getStationName() {
+        return stationName;
     }
 
-    public void setGodzina_pomiaru(String godzina_pomiaru) {
-        this.godzina_pomiaru = godzina_pomiaru;
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
     }
 
-    public String getTemperatura() {
-        return temperatura;
+    public String getDateOfMeasurement() {
+        return dateOfMeasurement;
     }
 
-    public void setTemperatura(String temperatura) {
-        this.temperatura = temperatura;
+    public void setDateOfMeasurement(String dateOfMeasurement) {
+        this.dateOfMeasurement = dateOfMeasurement;
     }
 
-    public String getPredkosc_wiatru() {
-        return predkosc_wiatru;
+    public String getTimeOfMeasurement() {
+        return timeOfMeasurement;
     }
 
-    public void setPredkosc_wiatru(String predkosc_wiatru) {
-        this.predkosc_wiatru = predkosc_wiatru;
+    public void setTimeOfMeasurement(String timeOfMeasurement) {
+        this.timeOfMeasurement = timeOfMeasurement;
     }
 
-    public String getKierunek_wiatru() {
-        return kierunek_wiatru;
+    public String getTemperature() {
+        return temperature;
     }
 
-    public void setKierunek_wiatru(String kierunek_wiatru) {
-        this.kierunek_wiatru = kierunek_wiatru;
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
-    public String getWilgotnosc_wzgledna() {
-        return wilgotnosc_wzgledna;
+    public String getWindSpeed() {
+        return windSpeed;
     }
 
-    public void setWilgotnosc_wzgledna(String wilgotnosc_wzgledna) {
-        this.wilgotnosc_wzgledna = wilgotnosc_wzgledna;
+    public void setWindSpeed(String windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
-    public String getSuma_opadu() {
-        return suma_opadu;
+    public String getWindDirection() {
+        return windDirection;
     }
 
-    public void setSuma_opadu(String suma_opadu) {
-        this.suma_opadu = suma_opadu;
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
     }
 
-    public String getCisnienie() {
-        return cisnienie;
+    public String getRelativeHumidity() {
+        return relativeHumidity;
     }
 
-    public void setCisnienie(String cisnienie) {
-        this.cisnienie = cisnienie;
+    public void setRelativeHumidity(String relativeHumidity) {
+        this.relativeHumidity = relativeHumidity;
+    }
+
+    public String getRainfall() {
+        return rainfall;
+    }
+
+    public void setRainfall(String rainfall) {
+        this.rainfall = rainfall;
+    }
+
+    public String getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
     }
 }
+

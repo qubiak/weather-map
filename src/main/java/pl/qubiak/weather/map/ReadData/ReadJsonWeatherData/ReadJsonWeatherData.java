@@ -13,27 +13,38 @@ import java.util.Scanner;
 
 public class ReadJsonWeatherData {
 
-    private static final String weatherJson = downloadJsonFromUrl("https://danepubliczne.imgw.pl/api/data/synop");
-    Gson gson = new Gson();
+    public static ArrayList<Poit> deserializationJson() {
 
-    Type userListType = new TypeToken<ArrayList<Poit>>() {
-    }.getType();
-    ArrayList<Poit> weatherArray = gson.fromJson(weatherJson, userListType);
+        String weatherJson = downloadJsonFromUrl("https://danepubliczne.imgw.pl/api/data/synop");
+        Gson gson = new Gson();
 
+        Type userListType = new TypeToken<ArrayList<Poit>>() {
+        }.getType();
+        ArrayList<Poit> weatherArray = gson.fromJson(weatherJson, userListType);
 
-    public static String downloadJsonFromUrl(String urlWithData) {
+        /*
+        Tutaj dostaję błąd Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $ Nie bardzo rozumiem skąd.
+        Oczekuję objektu a dostaję Stringa. Nie dostaję przecież jednego JSONa tylko wszystkie. Jak to rozumieć
+        i jak to rozwiązać?
+         */
+
+        return weatherArray;
+    }
+
+    public static String downloadJsonFromUrl(String weatherJson) {
         try {
-            URL myUrl = new URL(urlWithData);
+            URL myUrl = new URL(weatherJson);
             StringBuilder jsonText = new StringBuilder();
             try (InputStream myInputStream = myUrl.openStream();
                  Scanner scanner = new Scanner(myInputStream)) {
                 while (scanner.hasNextLine()) {
                     jsonText.append(scanner.nextLine());
                 }
+                System.out.println(jsonText.toString());
                 return jsonText.toString();
             }
         } catch (IOException e) {
-            System.err.println("Failed to get content from URL " + urlWithData + " due to exception: " + e.getMessage());
+            System.err.println("Failed to get content from URL " + weatherJson + " due to exception: " + e.getMessage());
             e.printStackTrace();
             return null;
         }

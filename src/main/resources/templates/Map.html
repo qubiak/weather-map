@@ -30,17 +30,17 @@
     }).addTo(map);
 
     points.forEach(value => {
-        L.marker(lat, long).addTo(map)
-            .bindPopup(value.id_stacji + "<br>" +
-            value.stacja + "<br>" +
-            value.data_pomiaru + "<br>" +
-            value.godzina_pomiaru + "<br>" +
-            value.temperatura + "<br>" +
-            value.predkosc_wiatru + "<br>" +
-            value.kierunek_wiatru + "<br>" +
-            value.wilgotnosc_wzgledna + "<br>" +
-            value.suma_opadu + "<br>" +
-            value.cisnienie);
+        L.marker(lat, along).addTo(map)
+            .bindPopup(value.stationId + "<br>" +
+            value.stationName + "<br>" +
+            value.dateOfMeasurement + "<br>" +
+            value.timeOfMeasurement + "<br>" +
+            value.temperature + "<br>" +
+            value.windSpeed + "<br>" +
+            value.windDirection + "<br>" +
+            value.relativeHumidity + "<br>" +
+            value.rainfall + "<br>" +
+            value.pressure);
 
     })
 

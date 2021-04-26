@@ -1,18 +1,20 @@
 package pl.qubiak.weather.map.ReadData.ReadCoordinates;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import pl.qubiak.weather.map.Model.CoOrdinates;
+
+import java.io.*;
+import java.util.ArrayList;
 
 public class ReadCoordinates {
 
-    public static void ReadCoordinatesFromFile() {
+
+    public static ArrayList<CoOrdinates> ReadCoordinatesFromFile() {
 
         FileReader fileReader = null;
-        String Region;
-        double lat;
-        double along;
+        String region;
+        String lat;
+        String along;
+        ArrayList<CoOrdinates> coOrdinatesArrayList = new ArrayList<>();
 
         try {
             fileReader = new FileReader("co-ordinates.txt");
@@ -24,14 +26,14 @@ public class ReadCoordinates {
 
         try {
             while ((bufferedReader.readLine()) != null) {
+
                 String holder[] = bufferedReader.readLine().split("-");
-                Region = holder[0];
-                lat = Double.parseDouble(holder[1]);
-                along = Double.parseDouble(holder[2]);
-                //ArrayList<String> coOrdinatesArrayList = new ArrayList<>();
-                //coOrdinatesArrayList.add(Region + lat + along);
-                //System.out.println(coOrdinatesArrayList);
-                // System.out.println(Region + " " + lat +  " " + along);
+                region = holder[0];
+                lat = holder[1];
+                along = holder[2];
+                coOrdinatesArrayList.add(new CoOrdinates(region, lat, along));
+
+                return coOrdinatesArrayList;
             }
         } catch (IOException e) {
             System.out.println("error reading from the file");
@@ -44,7 +46,7 @@ public class ReadCoordinates {
             e.printStackTrace();
         }
 
-
+        return coOrdinatesArrayList;
     }
 }
 

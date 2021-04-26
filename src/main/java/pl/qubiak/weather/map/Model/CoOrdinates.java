@@ -2,31 +2,44 @@ package pl.qubiak.weather.map.Model;
 
 public class CoOrdinates {
 
-    private String Region;
-    private double Lat;
-    private double aLong;
+    private String region;
+    private String lat;
+    private String aLong;
+
+    public CoOrdinates() {
+    }
+
+    public CoOrdinates(String region, String lat, String aLong) {
+        region = region;
+        lat = lat;
+        this.aLong = aLong;
+    }
+
+    public CoOrdinates(String region) {
+        region = region;
+    }
 
     public String getRegion() {
-        return Region;
+        return region;
     }
 
     public void setRegion(String region) {
-        Region = region;
+        region = region;
     }
 
-    public double getLat() {
-        return Lat;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLat(double lat) {
-        Lat = lat;
+    public void setLat(String lat) {
+        lat = lat;
     }
 
-    public double getLong() {
+    public String getLong() {
         return aLong;
     }
 
-    public void setLong(double aLong) {
+    public void setLong(String aLong) {
         aLong = aLong;
     }
 }
