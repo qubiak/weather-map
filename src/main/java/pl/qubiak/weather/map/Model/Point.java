@@ -1,27 +1,41 @@
 package pl.qubiak.weather.map.Model;
 
-public class Poit {
+import com.google.gson.annotations.SerializedName;
 
-    private String lat;
-    private String along;
+import java.util.ArrayList;
+
+public class Point {
+
+    private double lat;
+    private double lon;
+    @SerializedName(value = "id_stacji")
     private String stationId;
+    @SerializedName(value = "stacja")
     private String stationName;
+    @SerializedName(value = "data_pomiaru")
     private String dateOfMeasurement;
+    @SerializedName(value = "godzina_pomiaru")
     private String timeOfMeasurement;
+    @SerializedName(value = "temperatura")
     private String temperature;
+    @SerializedName(value = "predkosc_wiatru")
     private String windSpeed;
+    @SerializedName(value = "kierunek_wiatru")
     private String windDirection;
+    @SerializedName(value = "wilgotnosc_wzgledna")
     private String relativeHumidity;
+    @SerializedName(value = "suma_opadu")
     private String rainfall;
+    @SerializedName(value = "cisnienie")
     private String pressure;
 
 
-    public Poit() {
+    public Point() {
     }
 
-    public Poit(String lat, String along, String stationId, String stationName, String dateOfMeasurement, String timeOfMeasurement, String temperature, String windSpeed, String windDirection, String relativeHumidity, String rainfall, String pressure) {
+    public Point(double lat, double lon, String stationId, String stationName, String dateOfMeasurement, String timeOfMeasurement, String temperature, String windSpeed, String windDirection, String relativeHumidity, String rainfall, String pressure) {
         this.lat = lat;
-        this.along = along;
+        this.lon = lon;
         this.stationId = stationId;
         this.stationName = stationName;
         this.dateOfMeasurement = dateOfMeasurement;
@@ -34,20 +48,25 @@ public class Poit {
         this.pressure = pressure;
     }
 
-    public String getLat() {
+    public Point(double lat, double lon, ArrayList<Point> weatherArray) {
+    }
+
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public double setLat(double lat) {
         this.lat = lat;
+        return lat;
     }
 
-    public String getAlong() {
-        return along;
+    public double getLon() {
+        return lon;
     }
 
-    public void setAlong(String along) {
-        this.along = along;
+    public double setLon(double lon) {
+        this.lon = lon;
+        return lon;
     }
 
     public String getStationId() {

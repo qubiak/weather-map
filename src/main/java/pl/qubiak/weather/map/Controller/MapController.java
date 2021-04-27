@@ -18,7 +18,7 @@ public class MapController {
 
     @GetMapping
     public String getMap(Model model) throws IOException {
-        model.addAttribute("points", imgwParser.getWeatherPointAndData());
+        model.addAttribute("points", imgwParser.addCoordinatesToPoint());
         return "map";
     }
 }

@@ -3,20 +3,17 @@ package pl.qubiak.weather.map.Model;
 public class CoOrdinates {
 
     private String region;
-    private String lat;
-    private String aLong;
+    private double lat;
+    private double lon;
+
 
     public CoOrdinates() {
     }
 
-    public CoOrdinates(String region, String lat, String aLong) {
-        region = region;
-        lat = lat;
-        this.aLong = aLong;
-    }
-
-    public CoOrdinates(String region) {
-        region = region;
+    public CoOrdinates(String region, double lat, double lon) {
+        this.region = region;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public String getRegion() {
@@ -24,22 +21,22 @@ public class CoOrdinates {
     }
 
     public void setRegion(String region) {
-        region = region;
+        this.region = region;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
-        lat = lat;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
-    public String getLong() {
-        return aLong;
+    public double getLon() {
+        return lon;
     }
 
-    public void setLong(String aLong) {
-        aLong = aLong;
+    public void setLon(double lon) {
+        this.lon = lon;
     }
 }

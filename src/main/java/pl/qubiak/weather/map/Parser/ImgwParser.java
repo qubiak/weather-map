@@ -1,49 +1,45 @@
 package pl.qubiak.weather.map.Parser;
 
 import org.springframework.stereotype.Service;
-import pl.qubiak.weather.map.Model.Poit;
+import pl.qubiak.weather.map.Model.CoOrdinates;
+import pl.qubiak.weather.map.Model.Point;
 import pl.qubiak.weather.map.ReadData.ReadCoordinates.ReadCoordinates;
 import pl.qubiak.weather.map.ReadData.ReadJsonWeatherData.ReadJsonWeatherData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ImgwParser {
 
-    public List<Poit> getWeatherPointAndData() {
+    public ArrayList<Point> addCoordinatesToPoint() {
 
-        List<Poit> poits = new ArrayList<>();
+        ArrayList<CoOrdinates> coOrdinatesArrayList = ReadCoordinates.ReadCoordinatesFromFile();
+        ArrayList<Point> points = ReadJsonWeatherData.deserializationJson();
 
-        /*
-        To mi się strasznie nei podoba. Założenie jest takie, że jest sobie lista z JSONa i jest lista z pliku.
-        Kolejność się zgadza. Jeżeli JSON np łódź jest z indeksem 10 w w pliku txt jego koordynaty też są z takim indeksem.
-        Trochę to nie fajne bo jak coś się zmieni to się wywali i nawet można tego nie zauważyć. Dlatego też w txt jest wpisany Region.
-        Myślałem by to dołączyćjakoś typu jeżeli. Może podmienić. Coś jak napisane jest w Connection. Tylko nei wiem gdzie to wywołać :P
-        Poratujesz coś.
-         */
+        for (int i = 0; i < points.size(); i++) {
+            //TODO stream.filter()
 
-        for (int i = 0; i < ReadJsonWeatherData.deserializationJson().size(); i++) {
-
-            String lat = ReadJsonWeatherData.deserializationJson().get(i).getLat();
-            String along = ReadJsonWeatherData.deserializationJson().get(i).getAlong();
-
-            String stationId = ReadJsonWeatherData.deserializationJson().get(i).getStationId();
-            String stationName = ReadJsonWeatherData.deserializationJson().get(i).getStationName();
-            String dateOfMeasurement = ReadJsonWeatherData.deserializationJson().get(i).getDateOfMeasurement();
-            String timeOfMeasurement = ReadJsonWeatherData.deserializationJson().get(i).getTimeOfMeasurement();
-            String temperature = ReadJsonWeatherData.deserializationJson().get(i).getTemperature();
-            String windSpeed = ReadJsonWeatherData.deserializationJson().get(i).getWindSpeed();
-            String windDirection = ReadJsonWeatherData.deserializationJson().get(i).getWindDirection();
-            String relativeHumidity = ReadJsonWeatherData.deserializationJson().get(i).getRelativeHumidity();
-            String rainfall = ReadJsonWeatherData.deserializationJson().get(i).getRainfall();
-            String pressure = ReadJsonWeatherData.deserializationJson().get(i).getPressure();
-
-
-            poits.add(new Poit(lat, along, stationId, stationName, dateOfMeasurement, timeOfMeasurement, temperature,
-                    windSpeed, windDirection, relativeHumidity, rainfall, pressure));
+            if (points.get(i).getStationName().equals(coOrdinatesArrayList.get(i).getRegion())) {
+                points.get(i).setLat(coOrdinatesArrayList.get(i).getLat());
+                points.get(i).setLon(coOrdinatesArrayList.get(i).getLon());
+            } else {
+                System.err.println("Check data range (file - JSON from URL)");
+                System.exit(3);
+            }
         }
-        return poits;
+/*
+        Optional<CoOrdinates> testStreamFilter = coOrdinatesArrayList.stream().filter(record -> record.getRegion().equals(points.get(5).getStationName())).findFirst();
+        System.out.println(testStreamFilter.get().getRegion() + " coordynaty 5 + Chojnice");
+
+        Optional<Point> test = points.stream().filter(record -> record.getStationName().equals(coOrdinatesArrayList.get(5).getRegion())).findFirst();
+        System.out.println(test.get().getStationName() + " points 5 = Gdańst");
+
+
+ */
+        return points;
     }
 }
 

@@ -12,8 +12,8 @@ public class ReadCoordinates {
 
         FileReader fileReader = null;
         String region;
-        String lat;
-        String along;
+        double lat;
+        double lon;
         ArrayList<CoOrdinates> coOrdinatesArrayList = new ArrayList<>();
 
         try {
@@ -25,16 +25,20 @@ public class ReadCoordinates {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         try {
-            while ((bufferedReader.readLine()) != null) {
+            String thisLine;
+            while ((thisLine = bufferedReader.readLine()) != null) {
 
-                String holder[] = bufferedReader.readLine().split("-");
+                String holder[] = thisLine.split("-");
+
                 region = holder[0];
-                lat = holder[1];
-                along = holder[2];
-                coOrdinatesArrayList.add(new CoOrdinates(region, lat, along));
+                lat = Double.parseDouble(holder[1]);
+                lon = Double.parseDouble(holder[2]);
 
-                return coOrdinatesArrayList;
+                coOrdinatesArrayList.add(new CoOrdinates(region, lat, lon));
+
             }
+
+
         } catch (IOException e) {
             System.out.println("error reading from the file");
             e.printStackTrace();
