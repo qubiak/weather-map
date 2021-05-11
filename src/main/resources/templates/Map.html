@@ -30,7 +30,7 @@
     }).addTo(map);
 
     points.forEach(value => {
-        L.marker(value.lat, value.lon).addTo(map)
+        L.marker([value.lat, value.lon]).addTo(map)
             .bindPopup(value.stationId + "<br>" +
             value.stationName + "<br>" +
             value.dateOfMeasurement + "<br>" +

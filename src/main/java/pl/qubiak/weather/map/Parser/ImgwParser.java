@@ -30,15 +30,7 @@ public class ImgwParser {
                 System.exit(3);
             }
         }
-/*
-        Optional<CoOrdinates> testStreamFilter = coOrdinatesArrayList.stream().filter(record -> record.getRegion().equals(points.get(5).getStationName())).findFirst();
-        System.out.println(testStreamFilter.get().getRegion() + " coordynaty 5 + Chojnice");
 
-        Optional<Point> test = points.stream().filter(record -> record.getStationName().equals(coOrdinatesArrayList.get(5).getRegion())).findFirst();
-        System.out.println(test.get().getStationName() + " points 5 = Gdańst");
-
-
- */
         return points;
     }
 }
