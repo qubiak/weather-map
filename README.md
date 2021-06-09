@@ -40,6 +40,6 @@ Project is: complete
 
 ## Contact
 
-Created by [_qubiak_]( http://www.linkedin.com/in/bartłomiej-kubiak-94283a194) - feel free to contact me!
+Created by [_qubiak_]( http://www.linkedin.com/in/bartłomiej-kubiak) - feel free to contact me!
 
 ![Example screenshot](./img/linkedin.png)
